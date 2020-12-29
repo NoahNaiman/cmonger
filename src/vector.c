@@ -33,7 +33,7 @@ Vector* vectorize(void* items, int itemsLength, int typeLength, char* type){
 	}
 	return(newVector);
 }
-void add_int_vector(Vector* vector, int item){
+void append_to_int_vector(Vector* vector, int item){
 	int index = vector->index;
 	int bufferLength = vector->bufferLength;
 
@@ -49,6 +49,31 @@ void add_int_vector(Vector* vector, int item){
 	vector->index = index;
 	((int*)vector->buffer)[index] = item;
 	return;
+}
+
+void insert_into_int_vector(Vector* vector, int item, int location){
+    int index = index->vector;
+    int bufferLength = vector->bufferLength;
+
+    if(location < 0){
+        printf("ERROR: invalid insertion location!\n")
+    }
+    else if(location > bufferLength){
+        while(location > bufferLength){
+            bufferLength = bufferLength*2;
+            if(!(realloc(vector->buffer, bufferLength))){
+                printf("ERROR: Enlargment of vector failed!\n");
+                return;
+            }
+        }
+        vector->bufferLength = bufferLength;
+    }
+    else if(location == index){
+        append_to_int_vector(vector, item);
+    }
+    else{
+        
+    }
 }
 
 int get_fromv_int(Vector* items, int index){

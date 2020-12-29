@@ -45,9 +45,9 @@ enum DataNumbers {CHAR = 2087773917, CHARPTR = 177062487, INT = 193418006, INTPT
 
 #define vector_init(x) vectorize(x, (lengthof(x)), sizeof((x)[0]), typename((x)[0]));
 
-#define addtov(vector, item) _Generic((item),			\
-	int: add_int_vector(vector, item),			\
-	default: add_int_vector(vector, item))
+#define appendtov(vector, item) _Generic((item),			\
+	int: append_to_int_vector(vector, item),			\
+	default: append_to_int_vector(vector, item))
 
 #define printf(f_, ...) printf((f_), ##__VA_ARGS__); 
 
@@ -65,7 +65,7 @@ typedef struct{
 
 /* Vector functions */
 Vector* vectorize(void* items, int itemsLength, int typeLength, char* type);
-void add_int_vector(Vector* vector, int item);
+void append_to_int_vector(Vector* vector, int item);
 int get_fromv_int(Vector* items, int index);
 
 /* HashTable functions */

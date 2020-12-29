@@ -15,3 +15,7 @@ $(EXECUTABLE): $(OBJECTS)
 clean:
 	rm -f bin/*
 	rm -f src/*.o
+
+remake:
+	make clean
+	make all

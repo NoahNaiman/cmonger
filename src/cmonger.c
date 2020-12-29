@@ -8,15 +8,15 @@ int main(int argc, char** argv){
 	printf("Last filled index of vector is: %zu\n", myVec->index);
 	printf("Type is: %s\n", myVec->type);
 	int i;
-	for(i = 0; i < myVec->bufferLength; ++i){
+	for(i = 0; i <= myVec->index; ++i){
 		printf("%d\n", get_fromv_int(myVec, i));
 	}
 
 	printf("\n");
-	addtov(myVec, 6);
-	addtov(myVec, 8);
+	appendtov(myVec, 6);
+	appendtov(myVec, 8);
 
-	for(i=0; i < myVec->bufferLength; ++i){
+	for(i=0; i <= myVec->index; ++i){
 		printf("%d\n", get_fromv_int(myVec, i));
 	}
 	return(0);
